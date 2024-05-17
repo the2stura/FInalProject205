@@ -29,7 +29,7 @@ class RotaryControl:
         angle_rad = math.radians(self.angle - 135)  # Adjust so 0 is at a logical position
         end_x = center + length * math.cos(angle_rad)
         end_y = center - length * math.sin(angle_rad)
-        self.canvas.create_oval(5, 5, 55, 55, outline="black", fill="lightblue")  # Change fill color here
+        self.canvas.create_oval(5, 5, 55, 55, outline="black", fill="lightblue")  # Change fill
         self.canvas.create_line(center, center, end_x, end_y, fill="red", width=2)
 
     def on_drag(self, event):
@@ -110,7 +110,7 @@ class VideoApp:
             self.load_video(file_path)
 
     def slider_pressed(self, event):
-        self.paused = True  # Pause video when user starts dragging the slider
+        self.paused = True  
         self.slider_active = True
 
     def slider_released(self, event):
@@ -133,7 +133,7 @@ class VideoApp:
                 self.slider.set(self.vid.get(cv2.CAP_PROP_POS_FRAMES))
                 self.window.after(int(1000 / 30), self.update)  # Continue updating
             else:
-                self.running = False  # Stop running at the end of the video
+                self.running = False  # Stops it running at the end of the video
                 self.vid.release()
                 self.toggle_play_btn.config(text="Play")
 
@@ -151,5 +151,5 @@ class VideoApp:
         messagebox.showinfo("Help", help_text)
 
 if __name__ == "__main__":
-    VideoApp(tk.Tk(), "Tkinter and OpenCV")
+    VideoApp(tk.Tk(), "Final project")
     tk.mainloop()
